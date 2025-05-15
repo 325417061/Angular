@@ -9,7 +9,8 @@ export class Student {
   averageGrade: number = 0;
   isActive: boolean = true; // ברירת מחדל: פעיל
   leaveDate?: Date; // תאריך עזיבה (אופציונלי)
-
+  cours?: string = '';
+  yearOfStudy?:yearOfStudy;
   constructor(
     id: number = 0,
     firstName: string = '',
@@ -20,7 +21,9 @@ export class Student {
     address: string = '',
     averageGrade: number = 0,
     isActive: boolean = true, // ברירת מחדל: פעיל
-    leaveDate?: Date // אופציונלי
+    leaveDate?: Date, // אופציונלי
+    cours: string = ''
+
   ) {
     this.id = id;
     this.firstName = firstName;
@@ -32,5 +35,13 @@ export class Student {
     this.averageGrade = averageGrade;
     this.isActive = isActive;
     this.leaveDate = leaveDate;
+    this.cours = cours;
   }
+
+}
+  
+export enum yearOfStudy {
+  A = 1,
+  B = 2,
+  C = 3
 }

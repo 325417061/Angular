@@ -1,16 +1,4 @@
-<!-- <div class="card" *ngIf="student">
-    <div class="card-body">
-      Student details
-      {{student.id}}
-      {{student.firstName}}
-      {{student.lastName}}
-      {{student.grade}}
-      {{student.address}}
-      {{student.phoneNumber}}
-      {{student.email}}
-      {{student.averageGrade}}
-    </div>
-</div> -->
+
 <div class="card" *ngIf="student else noStudent ">
     <div class="card-body">
         <div class="form-group">
@@ -50,22 +38,7 @@
             <label for="isActive">Student isActive:</label>
             <input type="text" class="form-control" id="isActive" [value]="student.isActive" >
         </div>
-
-
         <button class="btn btn-primary" (click)="saveNewStudent()">Save</button>
-        <!-- </form> -->
-      <!-- <h5>Student Details</h5>
-      <p><strong>ID:</strong> {{ student.id }}</p>
-      <p><strong>First Name:</strong> {{ student.firstName }}</p>
-      <p><strong>Last Name:</strong> {{ student.lastName }}</p>
-      <p><strong>Grade:</strong> {{ student.grade }}</p>
-      <p><strong>Address:</strong> {{ student.address }}</p>
-      <p><strong>Phone Number:</strong> {{ student.phoneNumber }}</p>
-      <p><strong>Email:</strong> {{ student.email }}</p>
-      <p><strong>Average Grade:</strong> {{ student.averageGrade }}</p>
-      <p><strong>Active:</strong> {{ student.isActive ? 'Yes' : 'No' }}</p>
-   -->
-      <!-- הצגת תאריך עזיבה רק אם הסטודנט אינו פעיל -->
       <div *ngIf="!student.isActive">
         <p><strong>Leave Date:</strong> {{ student.leaveDate | date: 'shortDate' }}</p>
       </div>

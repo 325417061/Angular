@@ -7,6 +7,7 @@
       <div class="row">
           <div class="col-1">{{student.id}}</div>
           <div class="col-3">{{student.firstName}}</div>
+          <div class="col-3">{{student.lastName}}</div>
           <div class="col-2">
               <button (click)="showDetails(student)">Show Details</button>
           </div>
@@ -46,5 +47,5 @@
   </div> -->
   <button class="btn btn-primary" (click)="showNewStudentDetails()">Add New Student</button>
 
-  <student-details [student]="selectedStudent"   (onSaveNewStudent)="addNewStudentToList($event)" ></student-details>
-  
+  <!-- <student-details [student]="selectedStudent"   (onSaveNewStudent)="addNewStudentToList($event)" ></student-details> -->
+  <student-details-form-md [student]="selectedStudent" (onSaveStudent)="saveStudentToList($event)" ></student-details-form-md>
