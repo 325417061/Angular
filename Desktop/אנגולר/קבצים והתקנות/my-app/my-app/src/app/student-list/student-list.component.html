@@ -1,0 +1,51 @@
+<ul class="list-group">
+  <li *ngFor="let student of students" class="list-group-item" 
+      [ngClass]="{ 'active':  student.isActive==true,
+                  }"
+                  [class.list-group-item-danger]="student.averageGrade>90">
+
+      <div class="row">
+          <div class="col-1">{{student.id}}</div>
+          <div class="col-3">{{student.firstName}}</div>
+          <div class="col-3">{{student.lastName}}</div>
+          <div class="col-2">
+              <button (click)="showDetails(student)">Show Details</button>
+          </div>
+          <div class="col-2">
+              <button (click)="deleteStudent(student)">Delete Student</button>
+          </div>
+      </div>
+      
+  </li>
+</ul>
+<!-- <div class="container">
+    <div
+      class="row text-center align-items-center py-2 border-bottom"
+      *ngFor="let student of students"
+    >
+    [ngClass]="{ 'active': selectedStudent && student.id==selectedStudent.id,
+                     }"
+       
+      <div class="col-1">{{ selectedStudent.id }}</div>
+      <div class="col-2">{{ student.firstName }}</div>
+      <div class="col-2">{{ student.lastName }}</div>
+      <div class="col-1">{{ student.grade }}</div>
+      <div class="col-3 text-truncate" title="{{ student.address }}">
+        {{ student.address }}
+      </div>
+      <div class="col-2">
+        <button (click)="showDetails(student)">show details</button>
+      </div>
+      <div class="col-2">{{ student.phoneNumber }}</div>
+      <div class="col-1">{{ student.averageGrade }}</div>
+      <div class="col-1">
+        <button class="btn btn-danger btn-sm" (click)="deleteStudent(student)">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div> -->
+  <button class="btn btn-primary" (click)="showNewStudentDetails()">Add New Student</button>
+
+  <!-- <student-details [student]="selectedStudent"   (onSaveNewStudent)="addNewStudentToList($event)" ></student-details> -->
+  <student-details-form-md [student]="selectedStudent" (onSaveStudent)="saveStudentToList($event)" ></student-details-form-md>
